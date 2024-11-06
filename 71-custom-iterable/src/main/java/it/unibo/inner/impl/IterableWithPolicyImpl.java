@@ -1,6 +1,7 @@
 package it.unibo.inner.impl;
 
 import java.util.Iterator;
+
 import it.unibo.inner.api.IterableWithPolicy;
 import it.unibo.inner.api.Predicate;
 
@@ -9,10 +10,22 @@ import it.unibo.inner.api.Predicate;
  */
 public class IterableWithPolicyImpl<T> implements IterableWithPolicy<T>{
 
-    private final T[] array;
+    private final T[] elements;
+    private final Predicate<T> filter;
 
-    public IterableWithPolicyImpl(T[] array) {
-        this.array = array;
+    public IterableWithPolicyImpl(T[] elements) {
+        this.elements = elements;
+        this.filter = new Predicate<>() {
+            @Override
+            public boolean test(T elem) {
+                return true;
+            }
+        };
+    }
+
+    public IterableWithPolicyImpl(T[] elements, Predicate<T> filter) {
+        this.elements = elements;
+        this.filter = filter;
     }
 
     @Override
@@ -21,6 +34,7 @@ public class IterableWithPolicyImpl<T> implements IterableWithPolicy<T>{
         
     }
 
+    @Override
     public Iterator<T> iterator() {
         class InnerIterator implements Iterator<T>{
             private int current;
@@ -31,12 +45,12 @@ public class IterableWithPolicyImpl<T> implements IterableWithPolicy<T>{
 
             @Override
             public boolean hasNext() {
-                return this.current < IterableWithPolicyImpl.this.array.length;
+                return this.current < IterableWithPolicyImpl.this.elements.length;
             }
             
             @Override
             public T next() {
-                return IterableWithPolicyImpl.this.array[current++];
+                return IterableWithPolicyImpl.this.elements[current++];
             }
         }
         return new InnerIterator();
