@@ -11,9 +11,9 @@ import it.unibo.inner.api.Predicate;
 public class IterableWithPolicyImpl<T> implements IterableWithPolicy<T>{
 
     private final T[] elements;
-    private final Predicate<T> filter;
+    private Predicate<T> filter;
 
-    public IterableWithPolicyImpl(T[] elements) {
+    public IterableWithPolicyImpl(final T[] elements) {
         this.elements = elements;
         this.filter = new Predicate<>() {
             @Override
@@ -23,15 +23,14 @@ public class IterableWithPolicyImpl<T> implements IterableWithPolicy<T>{
         };
     }
 
-    public IterableWithPolicyImpl(T[] elements, Predicate<T> filter) {
+    public IterableWithPolicyImpl(final T[] elements, final Predicate<T> filter) {
         this.elements = elements;
         this.filter = filter;
     }
 
     @Override
-    public void setIterationPolicy(Predicate<T> filter) {
-        // TODO Auto-generated method stub
-        
+    public void setIterationPolicy(final Predicate<T> filter) {
+        this.filter = filter;       
     }
 
     @Override
