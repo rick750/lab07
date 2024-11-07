@@ -16,8 +16,7 @@ Ci si prepari a rispondere alla seguente domanda al momento della correzione:
 
 Si implementino le funzioni di utilità non ancora implementate all'interno di `Transformers`.
 Queste funzioni rappresentano manipolazioni di tipo *funzionale* di collezioni.
-Si leggano con attenzione i commenti Javadoc presenti per trovare la soluzione più compatta per implementare le funzioni
-richieste.
+Si leggano con attenzione i commenti Javadoc presenti per trovare la soluzione più compatta per implementare le funzioni richieste.
 Si minimizzino le duplicazioni di codice, e non si utilizzino metodi "di appoggio".
 
 ## Parte 3: classi innestate ed enum
