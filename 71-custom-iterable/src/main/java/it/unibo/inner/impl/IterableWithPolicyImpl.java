@@ -1,5 +1,6 @@
 package it.unibo.inner.impl;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -64,5 +65,15 @@ public class IterableWithPolicyImpl<T> implements IterableWithPolicy<T>{
             }
         }
         return new InnerIterator();
+    }
+
+    @Override
+    public String toString() {
+        String str = "[";
+        for (int i = 0; i < this.elements.length - 1; i++) {
+            str = str.concat(this.elements[i] + ",");
+        }
+        str  = str.concat(this.elements[this.elements.length - 1] + "]");
+        return str;
     }    
 }
