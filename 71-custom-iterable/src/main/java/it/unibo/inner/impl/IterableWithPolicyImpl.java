@@ -15,6 +15,10 @@ public class IterableWithPolicyImpl<T> implements IterableWithPolicy<T>{
     private final T[] elements;
     private Predicate<T> filter;
 
+    /**
+     * Iterates all elements in elements
+     * @param elements the array of elements to iterate
+    */
     public IterableWithPolicyImpl(final T[] elements) {
         this.elements = elements;
         this.filter = new Predicate<>() {
@@ -25,6 +29,11 @@ public class IterableWithPolicyImpl<T> implements IterableWithPolicy<T>{
         };
     }
 
+    /**
+     * Iterates all elements in elements
+     * @param elements the array of elements to iterate
+     * @param filter the filter to apply
+    */
     public IterableWithPolicyImpl(final T[] elements, final Predicate<T> filter) {
         this.elements = elements;
         this.filter = filter;
