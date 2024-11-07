@@ -1,26 +1,25 @@
 package it.unibo.inner;
 
-import it.unibo.inner.api.IterableWithPolicy;
-import it.unibo.inner.api.Predicate;
-import it.unibo.inner.test.api.Product;
-import it.unibo.inner.test.impl.ProductImpl;
-
 import java.util.Arrays;
 import java.util.List;
 
+import it.unibo.inner.api.IterableWithPolicy;
+import it.unibo.inner.api.Predicate;
 import it.unibo.inner.impl.IterableWithPolicyImpl;
 import static it.unibo.inner.test.Assertions.assertContentEqualsInOrder;
+import it.unibo.inner.test.api.Product;
+import it.unibo.inner.test.impl.ProductImpl;
 
 public class TestIterableWithPolicy {
 
     private TestIterableWithPolicy() {}
 
     private static <T> IterableWithPolicy<T> getIterableWithPolicy(T[] elements, Predicate<T> filter) {
-        return new IterableWithPolicyImpl<>(elements, filter); // TODO: return the implementation of IterableWithPolicy
+        return new IterableWithPolicyImpl<>(elements, filter);
     }
 
     private static <T> IterableWithPolicy<T> getIterableWithPolicy(T[] elements) {
-        return new IterableWithPolicyImpl<>(elements); // TODO: return the implementation of IterableWithPolicy
+        return new IterableWithPolicyImpl<>(elements);
     }
 
     public static void main(String[] args) {

@@ -69,11 +69,6 @@ public class IterableWithPolicyImpl<T> implements IterableWithPolicy<T>{
 
     @Override
     public String toString() {
-        String str = "[";
-        for (int i = 0; i < this.elements.length - 1; i++) {
-            str = str.concat(this.elements[i] + ",");
-        }
-        str  = str.concat(this.elements[this.elements.length - 1] + "]");
-        return str;
+        return Arrays.toString(elements);
     }    
 }
